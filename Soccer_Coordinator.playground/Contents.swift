@@ -33,10 +33,11 @@ let players: [[String: Any]] = [
 // Separate players by experience
 for player in players {
     switch true {
-    case player["isExperienced"] as! Bool: experiencedPlayers.append(player)
+    case player["isExperienced"] as? Bool: experiencedPlayers.append(player)
     default: notExperiencedPlayers.append(player)
     }
 }
+
 
 
 
