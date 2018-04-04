@@ -50,8 +50,16 @@ for player in experiencedPlayers {
     }
 }
 
-
-
+// Separate non experienced players into teams
+for player in notExperiencedPlayers {
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+        teamRaptors.append(player)
+    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+        teamDragons.append(player)
+    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+        teamSharks.append(player)
+    }
+}
 
 
 
