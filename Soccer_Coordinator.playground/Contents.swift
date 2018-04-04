@@ -14,6 +14,7 @@ let players: [[String: Any]] = [
     ["playerName": "Joe Smith", "height": 42, "isExperienced": true, "guardian": "Jim and Jan Smith"],
     ["playerName": "Jill Tanner", "height": 36, "isExperienced": true, "guardian": "Clara Tanner"],
     ["playerName": "Bill Bon", "height": 43, "isExperienced": true, "guardian": "Sara and Jenny Bon"],
+    ["playerName": "Eva Gordon", "height": 45, "isExperienced": false, "guardian": "Wendy and Mike Gordon"],
     ["playerName": "Matt Gill", "height": 40, "isExperienced": false, "guardian": "Charles and Sylvia Gill"],
     ["playerName": "Kimmy Stein", "height": 41, "isExperienced": false, "guardian": "Bill and Hillary Stein"],
     ["playerName": "Sammy Adams", "height": 45, "isExperienced": false, "guardian": "Jeff Adams"],
@@ -37,6 +38,32 @@ for player in players {
     default: notExperiencedPlayers.append(player)
     }
 }
+
+// Separate experienced players into teams
+for player in experiencedPlayers {
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+        teamRaptors.append(player)
+    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+        teamDragons.append(player)
+    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+        teamSharks.append(player)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
