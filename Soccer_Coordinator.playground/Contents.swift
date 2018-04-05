@@ -34,15 +34,21 @@ let players: [[String: Any]] = [
     ["playerName": "Herschel Krustofski", "height": 45.0, "isExperienced": true, "guardian": "Hyman and Rachel Krustofski"]
 ]
 
-// Total Height of all players
-//var totalPlayerHeight: Double = 0.0
-//var averagePlayerHeight: Double = 0.0
-//
-//for player in players {
-//    totalPlayerHeight += player["height"]! as! Double
-//}
-//averagePlayerHeight = (totalPlayerHeight / Double(players.count))
-//print(averagePlayerHeight)
+// Calculate average height
+func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
+    let numberOfPlayers = Double(teamBeingCalculated.count)
+    var playerHeight: Double = 0.0
+    var totalPlayerHeight: Double = 0.0
+    var averagePlayerHeight: Double = 0.0
+    
+    for player in teamBeingCalculated {
+        playerHeight = player["height"] as! Double
+        totalPlayerHeight = totalPlayerHeight + playerHeight
+        averagePlayerHeight = totalPlayerHeight / numberOfPlayers
+    }
+    
+    return averagePlayerHeight
+}
 
 // Separate players by experience
 for player in players {
@@ -74,7 +80,11 @@ for player in notExperiencedPlayers {
     }
 }
 
-
+// Testing averages
+//calcAverageHeight(ofTeam: teamSharks)
+//calcAverageHeight(ofTeam: teamRaptors)
+//calcAverageHeight(ofTeam: teamDragons)
+//calcAverageHeight(ofTeam: players)
 
 
 
