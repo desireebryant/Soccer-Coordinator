@@ -47,6 +47,12 @@ func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
     return averagePlayerHeight
 }
 
+// Calculate team average height difference
+func calcAverageHeightDiff(betweenTeam1 team1: [[String: Any]], betweenTeam2 team2: [[String: Any]]) -> Double {
+    let heightDiff: Double = (calcAverageHeight(ofTeam: team1)) - (calcAverageHeight(ofTeam: team2))
+    return heightDiff
+}
+
 // Separate players by experience
 for player in players {
     switch true {
@@ -77,11 +83,13 @@ for player in notExperiencedPlayers {
     }
 }
 
-// Testing averages
-//calcAverageHeight(ofTeam: teamSharks)
-//calcAverageHeight(ofTeam: teamRaptors)
-//calcAverageHeight(ofTeam: teamDragons)
-// calcAverageHeight(ofTeam: players)
+
+// Calculate Difference in average team height
+calcAverageHeight(ofTeam: teamDragons)
+calcAverageHeight(ofTeam: teamRaptors)
+calcAverageHeight(ofTeam: teamSharks)
+
+calcAverageHeightDiff(betweenTeam1: teamSharks, betweenTeam2: teamRaptors)
 
 
 
