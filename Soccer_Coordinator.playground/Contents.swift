@@ -61,35 +61,43 @@ for player in players {
     }
 }
 
-// Separate experienced players into teams
+// calcAverageHeightDiff(betweenTeam1: experiencedPlayers, betweenTeam2: notExperiencedPlayers)
+
+// Getting the average height of each team
+let raptorsAverageHeight: Double = calcAverageHeight(ofTeam: teamRaptors)
+let dragonsAverageHeight: Double = calcAverageHeight(ofTeam: teamDragons)
+let sharksAverageHeight: Double = calcAverageHeight(ofTeam: teamSharks)
+
+// Separate experienced players into teams by height
 for player in experiencedPlayers {
-    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count)
+    && ((raptorsAverageHeight - dragonsAverageHeight) <= 1.5)
+    && ((raptorsAverageHeight - sharksAverageHeight) <= 1.5) {
         teamRaptors.append(player)
-    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
-        teamDragons.append(player)
-    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count)
+      && ((dragonsAverageHeight - raptorsAverageHeight) <= 1.5)
+      && ((dragonsAverageHeight - sharksAverageHeight) <= 1.5) {
+            teamDragons.append(player)
+    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count)
+      && ((sharksAverageHeight - raptorsAverageHeight) <= 1.5)
+      && ((sharksAverageHeight - dragonsAverageHeight) <= 1.5) {
         teamSharks.append(player)
     }
 }
 
 // Separate non experienced players into teams
-for player in notExperiencedPlayers {
-    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
-        teamRaptors.append(player)
-    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
-        teamDragons.append(player)
-    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
-        teamSharks.append(player)
-    }
-}
-
-
-// Calculate Difference in average team height
-calcAverageHeight(ofTeam: teamDragons)
-calcAverageHeight(ofTeam: teamRaptors)
-calcAverageHeight(ofTeam: teamSharks)
-
-calcAverageHeightDiff(betweenTeam1: teamSharks, betweenTeam2: teamRaptors)
+//for player in notExperiencedPlayers {
+//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count)
+//    {
+//        teamRaptors.append(player)
+//    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count)
+//    {
+//        teamDragons.append(player)
+//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count)
+//    {
+//        teamSharks.append(player)
+//    }
+//}
 
 
 
