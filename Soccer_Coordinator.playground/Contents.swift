@@ -5,9 +5,6 @@ var teamSharks: [[String: Any]] = []
 var teamDragons: [[String: Any]] = []
 var teamRaptors: [[String: Any]] = []
 
-// Soccer League
-let soccerLeague = [teamSharks, teamDragons, teamRaptors]
-
 // Player Experience
 var experiencedPlayers: [[String: Any]] = []
 var notExperiencedPlayers: [[String: Any]] = []
@@ -84,7 +81,7 @@ for player in notExperiencedPlayers {
 //calcAverageHeight(ofTeam: teamSharks)
 //calcAverageHeight(ofTeam: teamRaptors)
 //calcAverageHeight(ofTeam: teamDragons)
-//calcAverageHeight(ofTeam: players)
+// calcAverageHeight(ofTeam: players)
 
 
 
