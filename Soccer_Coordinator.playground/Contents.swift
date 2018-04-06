@@ -31,7 +31,7 @@ let players: [[String: Any]] = [
     ["playerName": "Herschel Krustofski", "height": 45.0, "isExperienced": true, "guardian": "Hyman and Rachel Krustofski"]
 ]
 
-// Calculate average height
+// Calculate average height of players
 func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
     let numberOfPlayers = Double(teamBeingCalculated.count)
     var playerHeight: Double = 0.0
@@ -47,12 +47,6 @@ func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
     return averagePlayerHeight
 }
 
-// Calculate team average height difference
-func calcAverageHeightDiff(betweenTeam1 team1: [[String: Any]], betweenTeam2 team2: [[String: Any]]) -> Double {
-    let heightDiff: Double = (calcAverageHeight(ofTeam: team1)) - (calcAverageHeight(ofTeam: team2))
-    return heightDiff
-}
-
 // Separate players by experience
 for player in players {
     switch true {
@@ -61,45 +55,44 @@ for player in players {
     }
 }
 
-// calcAverageHeightDiff(betweenTeam1: experiencedPlayers, betweenTeam2: notExperiencedPlayers)
-
-// Getting the average height of each team
-let raptorsAverageHeight: Double = calcAverageHeight(ofTeam: teamRaptors)
-let dragonsAverageHeight: Double = calcAverageHeight(ofTeam: teamDragons)
-let sharksAverageHeight: Double = calcAverageHeight(ofTeam: teamSharks)
-
 // Separate experienced players into teams by height
 for player in experiencedPlayers {
-    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count)
-    && ((raptorsAverageHeight - dragonsAverageHeight) <= 1.5)
-    && ((raptorsAverageHeight - sharksAverageHeight) <= 1.5) {
-        teamRaptors.append(player)
-    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count)
-      && ((dragonsAverageHeight - raptorsAverageHeight) <= 1.5)
-      && ((dragonsAverageHeight - sharksAverageHeight) <= 1.5) {
-            teamDragons.append(player)
-    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count)
-      && ((sharksAverageHeight - raptorsAverageHeight) <= 1.5)
-      && ((sharksAverageHeight - dragonsAverageHeight) <= 1.5) {
-        teamSharks.append(player)
+//    let playerHeight: Double = player["height"] as! Double
+//    let playersAverageHeight: Double = calcAverageHeight(ofTeam: experiencedPlayers)
+//    let raptorsAverageHeight: Double = calcAverageHeight(ofTeam: teamRaptors)
+//    let dragonsAverageHeight: Double = calcAverageHeight(ofTeam: teamDragons)
+//    let sharksAverageHeight: Double = calcAverageHeight(ofTeam: teamSharks)
+    
+// (team1 - 1.5) >= team2 <= (team1 + 1.5)
+// (team1 - 1.5) >= team3 <= (team1 + 1.5)
+
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+            teamRaptors.append(player)
     }
+    else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+            teamDragons.append(player)
+    }
+    else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+            teamSharks.append(player)
+    }
+    
+
+    
+    
 }
 
-// Separate non experienced players into teams
+// Sort non-experienced players by height
+
+// Separate non-experienced players into teams by height
 //for player in notExperiencedPlayers {
-//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count)
-//    {
+//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
 //        teamRaptors.append(player)
-//    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count)
-//    {
+//    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
 //        teamDragons.append(player)
-//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count)
-//    {
+//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
 //        teamSharks.append(player)
 //    }
 //}
-
-
 
 
 
