@@ -10,7 +10,7 @@ var experiencedPlayers: [[String: Any]] = []
 var notExperiencedPlayers: [[String: Any]] = []
 
 // Player Information
-let players: [[String: Any]] = [
+var players: [[String: Any]] = [
     ["playerName": "Joe Smith", "height": 42.0, "isExperienced": true, "guardian": "Jim and Jan Smith"],
     ["playerName": "Jill Tanner", "height": 36.0, "isExperienced": true, "guardian": "Clara Tanner"],
     ["playerName": "Bill Bon", "height": 43.0, "isExperienced": true, "guardian": "Sara and Jenny Bon"],
@@ -30,6 +30,9 @@ let players: [[String: Any]] = [
     ["playerName": "Les Clay", "height": 42.0, "isExperienced": true, "guardian": "Wynonna Brown"],
     ["playerName": "Herschel Krustofski", "height": 45.0, "isExperienced": true, "guardian": "Hyman and Rachel Krustofski"]
 ]
+
+// Sort players based on height - descending (bin packing algorithm)
+players.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
 
 // Calculate average height of players
 func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
@@ -55,41 +58,60 @@ for player in players {
     }
 }
 
-// Sort players based on height
-experiencedPlayers.sort(by: {$1["height"] as! Double > $0["height"] as! Double})
-//experiencedPlayers.count
-//print(experiencedPlayers)
+// Sort experienced & non-experienced players by height
+experiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
+notExperiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Separate experienced players into teams by height
-for player in experiencedPlayers {
-//    let playerHeight: Double = player["height"] as! Double
+//for player in experiencedPlayers {
+//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+//        teamRaptors.append(player)
+//    }
+//    else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+//        teamDragons.append(player)
+//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+//        teamSharks.append(player)
+//    }
+//}
 
-    
-    // (team1 - 1.5) >= team2 <= (team1 + 1.5)
-    // (team1 - 1.5) >= team3 <= (team1 + 1.5)
-
-    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
-//        let raptorsAverageHeight: Double = calcAverageHeight(ofTeam: teamRaptors)
-//        let upperRange: Double = (raptorsAverageHeight + 1.5)
-//        let lowerRange: Double = (raptorsAverageHeight - 1.5)
-        teamRaptors.append(player)
-    }
-    else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
-//        let dragonsAverageHeight: Double = calcAverageHeight(ofTeam: teamDragons)
-//        let upperRange: Double = (dragonsAverageHeight + 1.5)
-//        let lowerRange: Double = (dragonsAverageHeight - 1.5)
-        teamDragons.append(player)
-    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
-//        let sharksAverageHeight: Double = calcAverageHeight(ofTeam: teamSharks)
-//        let upperRange: Double = (sharksAverageHeight + 1.5)
-//        let lowerRange: Double = (sharksAverageHeight - 1.5)
-        teamSharks.append(player)
-    }
-}
-
-calcAverageHeight(ofTeam: teamRaptors)
-calcAverageHeight(ofTeam: teamDragons)
-calcAverageHeight(ofTeam: teamSharks)
 // Sort non-experienced players by height
 
 // Separate non-experienced players into teams by height
@@ -102,27 +124,3 @@ calcAverageHeight(ofTeam: teamSharks)
 //        teamSharks.append(player)
 //    }
 //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
