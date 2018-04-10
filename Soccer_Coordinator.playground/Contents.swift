@@ -70,6 +70,13 @@ let averageHeightAllPlayers: Double = calcAverageHeight(ofTeam: players)
 // let averageHeightNonExperiencedPlayers: Double = calcAverageHeight(ofTeam: notExperiencedPlayers)
 
 // Separate experienced players into teams by height
+for player in experiencedPlayers {
+    
+    
+    
+}
+
+// ?????????????
 //for player in experiencedPlayers {
 //
 //    let numberOfPlayers: Int = experiencedPlayers.count
@@ -85,33 +92,6 @@ let averageHeightAllPlayers: Double = calcAverageHeight(ofTeam: players)
 //    }
 //
 //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Separate experienced players into teams by height
 //for player in experiencedPlayers {
