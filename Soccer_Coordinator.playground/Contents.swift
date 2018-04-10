@@ -12,6 +12,9 @@ var soccerLeague = (teamRaptors, teamDragons, teamSharks)
 var experiencedPlayers: [[String: Any]] = []
 var notExperiencedPlayers: [[String: Any]] = []
 
+// Team Letters
+var letters: [[String: Any]] = []
+
 // Player Information
 var players: [[String: Any]] = [
     ["playerName": "Joe Smith", "height": 42.0, "isExperienced": true, "guardian": "Jim and Jan Smith"],
@@ -61,59 +64,49 @@ for player in players {
     }
 }
 
-// Sort experienced and non-experienced players based on height
+// Sort experienced players based on height - decreasing
 experiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
-notExperiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
+// Sort non-experienced players based on height - increasing
+notExperiencedPlayers.sort(by: {$1["height"] as! Double > $0["height"] as! Double})
 
 // Average Height of players
 let averageHeightAllPlayers: Double = calcAverageHeight(ofTeam: players)
-// let averageHeightNonExperiencedPlayers: Double = calcAverageHeight(ofTeam: notExperiencedPlayers)
+let averageHeightNonExperiencedPlayers: Double = calcAverageHeight(ofTeam: notExperiencedPlayers)
 
 // Separate experienced players into teams by height
 for player in experiencedPlayers {
-    
-    
-    
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+        teamRaptors.append(player)
+    }
+    else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+        teamDragons.append(player)
+    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+        teamSharks.append(player)
+    }
 }
 
-// ?????????????
-//for player in experiencedPlayers {
-//
-//    let numberOfPlayers: Int = experiencedPlayers.count
-//    let numberOfTeams: Int = 3
-//    let maxPlayersPerTeam: Int = (numberOfPlayers / numberOfTeams)
-//    let averageHeightExperiencedPlayers: Double = calcAverageHeight(ofTeam: experiencedPlayers)
-//    let maxTotalHeightPerTeam: Double = (averageHeightExperiencedPlayers * Double(maxPlayersPerTeam))
-//
-//    if (teamRaptors.count < maxPlayersPerTeam) {
-//        let raptorsAverageHeight: Double = (calcAverageHeight(ofTeam: teamRaptors))
-//        let raptorsUpperHeight: Double = (raptorsAverageHeight + 1.5)
-//        let raptorsLowerHeight: Double = (raptorsAverageHeight - 1.5)
-//    }
-//
-//}
+// Added non-experienced players by height
+for player in notExperiencedPlayers {
+    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
+        teamRaptors.append(player)
+    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
+        teamDragons.append(player)
+    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
+        teamSharks.append(player)
+    }
+}
 
-// Separate experienced players into teams by height
-//for player in experiencedPlayers {
-//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
-//        teamRaptors.append(player)
-//    }
-//    else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
-//        teamDragons.append(player)
-//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
-//        teamSharks.append(player)
-//    }
-//}
+// Team player count
+teamRaptors.count
+teamDragons.count
+teamSharks.count
 
-// Sort non-experienced players by height
+// Print average height of each team
+print(calcAverageHeight(ofTeam: teamRaptors))
+print(calcAverageHeight(ofTeam: teamDragons))
+print(calcAverageHeight(ofTeam: teamSharks))
 
-// Separate non-experienced players into teams by height
-//for player in notExperiencedPlayers {
-//    if (teamRaptors.count <= teamDragons.count) && (teamRaptors.count <= teamSharks.count) {
-//        teamRaptors.append(player)
-//    } else if (teamDragons.count <= teamRaptors.count) && (teamDragons.count <= teamSharks.count) {
-//        teamDragons.append(player)
-//    } else if (teamSharks.count <= teamRaptors.count) && (teamSharks.count <= teamDragons.count) {
-//        teamSharks.append(player)
-//    }
-//}
+
+
+
+
