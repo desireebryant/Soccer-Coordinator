@@ -5,6 +5,9 @@ var teamSharks: [[String: Any]] = []
 var teamDragons: [[String: Any]] = []
 var teamRaptors: [[String: Any]] = []
 
+// Soccor League
+var soccerLeague = (teamRaptors, teamDragons, teamSharks)
+
 // Player Experience
 var experiencedPlayers: [[String: Any]] = []
 var notExperiencedPlayers: [[String: Any]] = []
@@ -31,7 +34,7 @@ var players: [[String: Any]] = [
     ["playerName": "Herschel Krustofski", "height": 45.0, "isExperienced": true, "guardian": "Hyman and Rachel Krustofski"]
 ]
 
-// Sort players based on height - descending (bin packing algorithm)
+// Sort players based on height - descending
 players.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
 
 // Calculate average height of players
@@ -58,20 +61,30 @@ for player in players {
     }
 }
 
-// Sort experienced & non-experienced players by height
+// Sort experienced and non-experienced players based on height
 experiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
 notExperiencedPlayers.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
 
+// Average Height of players
+let averageHeightAllPlayers: Double = calcAverageHeight(ofTeam: players)
+// let averageHeightNonExperiencedPlayers: Double = calcAverageHeight(ofTeam: notExperiencedPlayers)
 
-
-
-
-
-
-
-
-
-
+// Separate experienced players into teams by height
+//for player in experiencedPlayers {
+//
+//    let numberOfPlayers: Int = experiencedPlayers.count
+//    let numberOfTeams: Int = 3
+//    let maxPlayersPerTeam: Int = (numberOfPlayers / numberOfTeams)
+//    let averageHeightExperiencedPlayers: Double = calcAverageHeight(ofTeam: experiencedPlayers)
+//    let maxTotalHeightPerTeam: Double = (averageHeightExperiencedPlayers * Double(maxPlayersPerTeam))
+//
+//    if (teamRaptors.count < maxPlayersPerTeam) {
+//        let raptorsAverageHeight: Double = (calcAverageHeight(ofTeam: teamRaptors))
+//        let raptorsUpperHeight: Double = (raptorsAverageHeight + 1.5)
+//        let raptorsLowerHeight: Double = (raptorsAverageHeight - 1.5)
+//    }
+//
+//}
 
 
 
