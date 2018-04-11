@@ -1,5 +1,4 @@
-// Soccer Coordinator
-// Going for "Exceeds!"
+// Soccer Coordinator - Going for "Exceeds Expectations"
 
 // Teams
 var teamRaptors: [[String: Any]] = []
@@ -105,15 +104,21 @@ for player in notExperiencedPlayers {
     }
 }
 
+// Average Height of Each Team
+print(calcAverageHeight(ofTeam: teamRaptors))
+print(calcAverageHeight(ofTeam: teamDragons))
+print(calcAverageHeight(ofTeam: teamSharks))
+
+// Create Letters for each player on each team
 func createTeamLetters(forPlayers onTeam: [[String: Any]]) {
     var letter: String = ""
     var practiceTime: String = ""
     var practiceDate: String = ""
     
     for player in onTeam {
-        var playerName = player["playerName"] as! String
-        var guardian = player["guardian"] as! String
-        var teamName = player["teamName"] as! String
+        let playerName = player["playerName"] as! String
+        let guardian = player["guardian"] as! String
+        let teamName = player["teamName"] as! String
 
         if (teamName == "Raptors") {
             practiceTime = "1pm"
@@ -133,23 +138,10 @@ func createTeamLetters(forPlayers onTeam: [[String: Any]]) {
     
 }
 
+// Create letters for each team
 createTeamLetters(forPlayers: teamRaptors)
 createTeamLetters(forPlayers: teamDragons)
 createTeamLetters(forPlayers: teamSharks)
 
+// Print letters collection
 print(letters)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
