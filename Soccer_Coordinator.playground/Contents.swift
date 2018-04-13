@@ -37,9 +37,6 @@ var players: [[String: Any]] = [
 // Calculate number of players
 let numberOfPlayers: Int = players.count
 
-// Sort players based on height - descending
-players.sort(by: {$0["height"] as! Double > $1["height"] as! Double})
-
 // Calculate average height of players
 func calcAverageHeight(ofTeam teamBeingCalculated: [[String: Any]]) -> Double {
     let numberOfPlayers = Double(teamBeingCalculated.count)
